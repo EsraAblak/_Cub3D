@@ -34,16 +34,20 @@ t_map	*get_map_struct(char *arg)
 
 int	main(int ac, char **av)
 {
-	t_map	*map;
-	// t_all	*all;
+	// t_map	*map;
+	// // t_all	*all;
 
 	if (ac != 2 || !check_cub(av[1]))
 		return (1);
-	map = get_map_struct(av[1]);
-	map->mmap = NULL;
-	checkers(map);
-	printf("harita çalışır\n");
-	// all = first_definitions(map);
-	// _mlx(all); 
-	return (0);
+	// map = get_map_struct(av[1]);
+	// map->mmap = NULL;
+	// checkers(map);
+	// // all = first_definitions(map);
+	// // _mlx(all); 
+	// return (0);
+
+	t_cub *cub;
+    cub = malloc(sizeof(t_cub));
+	get_cub(av[1], cub);
+	divide_cub(cub);
 }

@@ -78,6 +78,9 @@ SRCS        :=      get_next_line/get_next_line.c \
                           src/raycaster/draw_images.c\
                           src/checkers/checker_utils.c\
                           src/utils/map_index_utils.c\
+                          src/parser/get_cub.c\
+                          src/parser/divide_cub.c\
+                          src/parser/seperate_first_part.c\
                           
 
 OBJS        := $(SRCS:.c=.o)

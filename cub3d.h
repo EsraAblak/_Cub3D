@@ -146,6 +146,22 @@ typedef struct s_all
 	t_mlx		*mlx;
 }				t_all;
 
+
+//new struct
+typedef struct s_cub
+{
+	char	*map;
+    char	**first_part;
+	int		*fp_last_index;
+	char	*_ea;
+	char	*_no;
+	char	*_so;
+	char	*_we;
+	char	*floor;
+	char	*ceiling;
+
+} t_cub;
+
 void			free_double_pointer(char **args);
 int				check_cub(char *arg);
 char			**read_map(char *map, t_map *_map);
@@ -179,4 +195,9 @@ int				check_location(char **map, int i, int j);
 void			map_start_index(char *all_line, t_map *map);
 int				is_map_started(char *all_line, int start, int end);
 void			find_map(char *all_line, int start, t_map *map);
+
+//new functions
+void get_cub(char *arg,t_cub *cub);
+void divide_cub(t_cub *cub);
+void seperate_first_part(t_cub *cub);
 #endif
