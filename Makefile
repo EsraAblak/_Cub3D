@@ -83,6 +83,8 @@ SRCS        :=      get_next_line/get_next_line.c \
                           src/parser/seperate_first_part.c\
                           src/parser/first_part_checks.c\
                           src/parser/handle_color.c\
+                          src/parser/take_second_part.c\
+                          src/parser/second_part_checkers.c\
                           
 
 OBJS        := $(SRCS:.c=.o)

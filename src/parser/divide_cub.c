@@ -47,5 +47,6 @@ void divide_cub(t_cub *cub)
     take_first_part(cub,&i);
     seperate_first_part(cub);
     first_part_checkers(cub);
-    // take_second_part(cub);
+    take_second_part(cub);
+    second_part_checkers(cub);
 }

@@ -161,6 +161,7 @@ typedef struct s_cub
 	char	*ceiling;
 	int		c_color;
 	int		f_color;
+	char	*map_reference;
 
 } t_cub;
 
@@ -205,4 +206,6 @@ void seperate_first_part(t_cub *cub);
 void first_part_checkers(t_cub *cub);
 void free_first_part(t_cub *cub);
 void	handle_color(t_cub *cub, char *str);
+void take_second_part(t_cub *cub);
+void second_part_checkers(t_cub *cub);
 #endif
