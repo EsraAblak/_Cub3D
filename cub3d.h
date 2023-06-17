@@ -159,6 +159,8 @@ typedef struct s_cub
 	char	*_we;
 	char	*floor;
 	char	*ceiling;
+	int		c_color;
+	int		f_color;
 
 } t_cub;
 
@@ -200,4 +202,7 @@ void			find_map(char *all_line, int start, t_map *map);
 void get_cub(char *arg,t_cub *cub);
 void divide_cub(t_cub *cub);
 void seperate_first_part(t_cub *cub);
+void first_part_checkers(t_cub *cub);
+void free_first_part(t_cub *cub);
+void	handle_color(t_cub *cub, char *str);
 #endif

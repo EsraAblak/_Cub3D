@@ -81,6 +81,8 @@ SRCS        :=      get_next_line/get_next_line.c \
                           src/parser/get_cub.c\
                           src/parser/divide_cub.c\
                           src/parser/seperate_first_part.c\
+                          src/parser/first_part_checks.c\
+                          src/parser/handle_color.c\
                           
 
 OBJS        := $(SRCS:.c=.o)

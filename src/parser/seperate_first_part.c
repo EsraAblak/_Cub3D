@@ -13,6 +13,7 @@ char *line(t_cub *cub, int index)
         index++;
     }
     char *str;
+    str = NULL;
     str = malloc(sizeof(char) * (i + 1));
     i = 0;
     index = keep_index;
@@ -80,6 +81,22 @@ int match_line(t_cub *cub, int start)
     return (0);
 }
 
+void free_first_part(t_cub *cub)
+{
+    if (cub->_ea != NULL)
+        free(cub->_ea);
+    if (cub->_we != NULL)
+        free(cub->_we);
+    if (cub->_so != NULL)
+        free(cub->_so);
+    if (cub->_no != NULL)
+        free(cub->_no);
+    if (cub->floor != NULL)
+        free(cub->floor);
+    if (cub->ceiling != NULL)
+        free(cub->ceiling);
+}
+
 void seperate_first_part(t_cub *cub)
 {
     int i;
@@ -103,12 +120,8 @@ void seperate_first_part(t_cub *cub)
     if (correct != 6)
     {
         printf("first part wrong\n");
+        // system("leaks cub3d");
+        free_first_part(cub);
         exit(1);
     }
-    // printf("%s\n",cub->_ea);
-    // printf("%s\n",cub->_we);
-    // printf("%s\n",cub->_so);
-    // printf("%s\n",cub->_no);
-    // printf("%s\n",cub->floor);
-    // printf("%s\n",cub->ceiling);
 }
