@@ -208,4 +208,5 @@ void free_first_part(t_cub *cub);
 void	handle_color(t_cub *cub, char *str);
 void take_second_part(t_cub *cub);
 void second_part_checkers(t_cub *cub);
+int double_pointer_len(char **str);
 #endif

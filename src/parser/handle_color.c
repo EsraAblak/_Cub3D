@@ -29,7 +29,7 @@ int	check_color(char *num)
 	return (nbr);
 }
 
-int	convert_int(char *str)
+int	convert_int(char *str,t_cub *cub)
 {
 	char	**split;
 	int		red;
@@ -38,6 +38,14 @@ int	convert_int(char *str)
 	int		rgb_int;
 
 	split = ft_split(str, ',');
+	if (double_pointer_len(split) != 3)
+	{
+		printf("color error\n");
+		free_double_pointer(split);
+		free_first_part(cub);
+		system("leaks cub3d");
+		exit(1);
+	}
 	red = check_color(split[0]);
 	green = check_color(split[1]);
 	blue = check_color(split[2]);
@@ -68,8 +76,8 @@ void	handle_color(t_cub *cub, char *str)
         exit(1);
     }
 	if (split[0][0] == 'F' && split[0][1] == '\0')
-		cub->f_color = convert_int(split[1]);
+		cub->f_color = convert_int(split[1],cub);
 	if (split[0][0] == 'C' && split[0][1] == '\0')
-		cub->c_color = convert_int(split[1]);
+		cub->c_color = convert_int(split[1],cub);
 	free_double_pointer(split);
 }

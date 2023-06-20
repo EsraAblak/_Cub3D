@@ -41,17 +41,25 @@ int check_color_error(t_cub *cub, char *str)
 
 void first_part_checkers(t_cub *cub)
 {
+    if ((cub->_ea) == NULL || (cub->_we) == NULL
+        || (cub->_so) == NULL|| (cub->_no) == NULL)
+    {
+        printf("eksik texturtes\n");
+        system("leaks cub3d");
+        free_first_part(cub);
+        exit(1);
+    }
     if (check_textures(cub->_ea) == 0 || check_textures(cub->_we) == 0
         || check_textures(cub->_so) == 0|| check_textures(cub->_no) == 0)
     {
-        printf("hatalı texturtes\n");
+        printf("hatali texturtes\n");
         system("leaks cub3d");
         free_first_part(cub);
         exit(1);
     }
     if (check_color_error(cub, cub->ceiling) == 0 || check_color_error(cub, cub->floor) == 0)
     {
-        printf("hatalı color\n");
+        printf("hatali color\n");
         system("leaks cub3d");
         free_first_part(cub);
         exit(1);

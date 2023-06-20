@@ -69,9 +69,9 @@ void second_part_checkers(t_cub *cub)
     // açık duvar
     // birden fazla karakter
     
-    if (/*map_character(cub) || */map_count(cub))
+    if (map_character(cub) || map_count(cub))
     {
-        printf("map hatası\n");
+        printf("map hatasi\n");
         free(cub->map_reference);
         free_first_part(cub);
         exit(1);
