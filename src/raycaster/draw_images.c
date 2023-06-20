@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:41:48 by mmesum            #+#    #+#             */
-/*   Updated: 2023/06/20 17:26:59 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 18:30:29 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	image_put_pixel(t_image *img, int x, t_all *all)
 	texture_y = (int)all->rc->tex_pos & (img->img_height - 1);
 	color = image_get_pixel(img, all->rc->text_x, texture_y);
 	(void)color;
-	all->mlx->mlx_img_addr[all->rc->start * all->rc->window_width
+	all->mlx->mlx_img_addr[all->rc->draw_start * all->rc->window_width
 		+ x] = color;
 }
 
@@ -70,21 +70,18 @@ void	draw_images(t_all *all, int x)
 			* all->rc->raydir_x;
 	all->rc->wall_x -= floor((all->rc->wall_x));
 	all->rc->text_x = (int)(all->rc->wall_x * (double)hit_image.img_width);
-		//check
 	if (all->rc->side == 0 && all->rc->raydir_x > 0)
 		all->rc->text_x = hit_image.img_width - all->rc->text_x - 1;
 	if (all->rc->side == 1 && all->rc->raydir_y < 0)
 		all->rc->text_x = hit_image.img_width - all->rc->text_x - 1;
-	all->rc->tex_pos = (all->rc->draw_start - all->rc->window_width
-			+ all->rc->window_height / 2 + hit_image.line_length / 2)
-		* all->rc->step;
-	all->rc->start = all->rc->draw_start;
+	all->rc->tex_pos = (all->rc->draw_start - all->rc->window_width / 2
+			+ all->rc->line_height / 2) * all->rc->step;
+	all->rc->draw_start = all->rc->draw_start;
 	all->rc->tex_step = 1.0 * hit_image.img_width / all->rc->line_height;
-	while (all->rc->start < all->rc->draw_end)
+	while (all->rc->draw_start < all->rc->draw_end)
 	{
-		
 		all->rc->tex_pos += all->rc->tex_step;
 		image_put_pixel(&hit_image, x, all);
-		all->rc->start++;
+		all->rc->draw_start++;
 	}
 }
