@@ -16,7 +16,7 @@ void	handle_left_right_keys(t_all *all, int keycode)
 {
 	if (keycode == A_KEY)
 	{
-		if (all->map->map[(int)(all->rc->pos_y - all->rc->plane_y
+		if (all->cub->double_ptr_map[(int)(all->rc->pos_y - all->rc->plane_y
 				* all->rc->move_speed)][(int)(all->rc->pos_x - all->rc->plane_x
 				* all->rc->move_speed)] != '1')
 		{
@@ -26,7 +26,7 @@ void	handle_left_right_keys(t_all *all, int keycode)
 	}
 	else if (keycode == D_KEY)
 	{
-		if (all->map->map[(int)(all->rc->pos_y + all->rc->plane_y
+		if (all->cub->double_ptr_map[(int)(all->rc->pos_y + all->rc->plane_y
 				* all->rc->move_speed)][(int)(all->rc->pos_x + all->rc->plane_x
 				* all->rc->move_speed)] != '1')
 		{
@@ -40,7 +40,7 @@ void	move_keys(t_all *all, int keycode)
 {
 	if (keycode == W_KEY)
 	{
-		if (all->map->map[(int)(all->rc->pos_y + all->rc->dir_y
+		if (all->cub->double_ptr_map[(int)(all->rc->pos_y + all->rc->dir_y
 				* all->rc->move_speed)][(int)(all->rc->pos_x + all->rc->dir_x
 				* all->rc->move_speed)] != '1')
 		{
@@ -50,7 +50,7 @@ void	move_keys(t_all *all, int keycode)
 	}
 	else if (keycode == S_KEY)
 	{
-		if (all->map->map[(int)(all->rc->pos_y - all->rc->dir_y
+		if (all->cub->double_ptr_map[(int)(all->rc->pos_y - all->rc->dir_y
 				* all->rc->move_speed)][(int)(all->rc->pos_x - all->rc->dir_x
 				* all->rc->move_speed)] != '1')
 		{

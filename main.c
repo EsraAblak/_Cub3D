@@ -47,7 +47,10 @@ int	main(int ac, char **av)
 	// return (0);
 
 	t_cub *cub;
+	t_all *all;
     cub = malloc(sizeof(t_cub));
 	get_cub(av[1], cub);
 	divide_cub(cub);
+	all = first_definitions(cub);
+	_mlx(all);
 }

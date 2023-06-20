@@ -37,12 +37,12 @@ void	floor_ceiling_color(t_all *all)
 			if (y < all->rc->window_height / 2)
 			{
 				all->mlx->mlx_img_addr[y * all->rc->window_width
-					+ x] = all->map->ceiling_color;
+					+ x] = all->cub->c_color;
 			}
 			else
 			{
 				all->mlx->mlx_img_addr[y * all->rc->window_width
-					+ x] = all->map->floor_color;
+					+ x] = all->cub->f_color;
 			}
 		}
 	}

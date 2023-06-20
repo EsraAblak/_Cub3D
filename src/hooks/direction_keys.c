@@ -53,14 +53,14 @@ int	check_direction(t_all *all)
 
 	i = 0;
 	j = 0;
-	while (all->map->map[i])
+	while (all->cub->double_ptr_map[i])
 	{
 		j = 0;
-		while (all->map->map[i][j] != '\0')
+		while (all->cub->double_ptr_map[i][j] != '\0')
 		{
-			if (all->map->map[i][j] == 'N' || all->map->map[i][j] == 'S')
+			if (all->cub->double_ptr_map[i][j] == 'N' || all->cub->double_ptr_map[i][j] == 'S')
 				return (1);
-			else if (all->map->map[i][j] == 'E' || all->map->map[i][j] == 'W')
+			else if (all->cub->double_ptr_map[i][j] == 'E' || all->cub->double_ptr_map[i][j] == 'W')
 				return (2);
 			j++;
 		}

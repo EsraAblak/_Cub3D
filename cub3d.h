@@ -139,13 +139,6 @@ typedef struct s_mlx
 	int			endian;
 }				t_mlx;
 
-typedef struct s_all
-{
-	t_map		*map;
-	t_rc		*rc;
-	t_mlx		*mlx;
-}				t_all;
-
 
 //new struct
 typedef struct s_cub
@@ -165,8 +158,22 @@ typedef struct s_cub
 	char **double_ptr_map;
 	int	map_x;
 	int map_y;
-
+	t_image		*image;
 } t_cub;
+
+
+
+
+typedef struct s_all
+{
+	t_map		*map;
+	t_rc		*rc;
+	t_mlx		*mlx;
+	t_cub		*cub;
+}				t_all;
+
+
+
 
 void			free_double_pointer(char **args);
 int				check_cub(char *arg);
@@ -181,7 +188,7 @@ void			check_map(t_map *map);
 int				double_ptr_len(char **args);
 void			safe_exit(t_map *map);
 void			check_player(t_map *map);
-t_all			*first_definitions(t_map *map);
+// t_all			*first_definitions(t_map *map);
 int				find_max_len(char **map);
 void			_mlx(t_all *all);
 void			ray_casting(t_all *all);
@@ -215,4 +222,6 @@ int double_pointer_len(char **str);
 int wall_check(t_cub *cub);
 int player_count(t_cub *cub);
 void double_ptr_map(t_cub *cub);
+t_all *first_definitions(t_cub *cub);
+void	assign_images(t_cub *cub);
 #endif

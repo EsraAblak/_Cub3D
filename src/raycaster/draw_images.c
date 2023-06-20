@@ -36,11 +36,11 @@ t_image	get_image(t_direction dir, t_all *all)
 	i = 0;
 	while (i < 4)
 	{
-		if (all->map->image[i].type == dir)
-			return (all->map->image[i]);
+		if (all->cub->image[i].type == dir)
+			return (all->cub->image[i]);
 		i++;
 	}
-	return (all->map->image[i]);
+	return (all->cub->image[i]);
 }
 
 t_image	get_side_image(t_all *all)

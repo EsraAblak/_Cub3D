@@ -57,7 +57,7 @@ void	dda(t_all *all)
 			all->rc->map_y += all->rc->step_y;
 			all->rc->side = 1;
 		}
-		if (all->map->map[all->rc->map_y][all->rc->map_x] == '1')
+		if (all->cub->double_ptr_map[all->rc->map_y][all->rc->map_x] == '1')
 			all->rc->hit = 1;
 	}
 }
