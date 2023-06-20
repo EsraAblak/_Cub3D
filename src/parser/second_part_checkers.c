@@ -85,7 +85,7 @@ void	second_part_checkers(t_cub *cub)
 		if (cub->map_reference != NULL)
 			free(cub->map_reference);
 		free_first_part(cub);
-		system("leaks cub3d");
+		system("leaks cub3D");
 		exit(1);
 	}
 }

@@ -43,7 +43,7 @@ int	convert_int(char *str,t_cub *cub)
 		printf("color error\n");
 		free_double_pointer(split);
 		free_first_part(cub);
-		system("leaks cub3d");
+		system("leaks cub3D");
 		exit(1);
 	}
 	red = check_color(split[0]);

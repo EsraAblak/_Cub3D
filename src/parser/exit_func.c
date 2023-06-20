@@ -4,7 +4,7 @@ void fp_exit(t_cub *cub)
 {
     printf("first part wrong\n");
     free_first_part(cub);
-    system("leaks cub3d");
+    system("leaks cub3D");
     exit(1);
 }
 
@@ -27,6 +27,6 @@ void game_exit(t_all *all)
     	free(all->cub->map);
 		free_images(all);
 		free_all(all);
-        system("leaks cub3d");
+        system("leaks cub3D");
 		exit(0);
 }
