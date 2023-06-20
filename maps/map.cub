@@ -1,13 +1,9 @@
 SO ./textures/wall_2.xpm
 
 
-
-
-
-
 NO          ./textures/wall_1.xpm
 
-F                           0,0,0
+F                           10,0,0
 
 EA        textures/wall_4.xpm
 WE           ./textures/wall_3.xpm 

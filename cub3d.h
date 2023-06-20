@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:20:43 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/20 11:22:08 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 13:50:33 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,4 +220,5 @@ int player_count(t_cub *cub);
 void double_ptr_map(t_cub *cub);
 t_all *first_definitions(t_cub *cub);
 void	assign_images(t_cub *cub);
+void free_images(t_all *all);
 #endif

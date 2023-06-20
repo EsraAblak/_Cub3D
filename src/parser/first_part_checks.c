@@ -28,6 +28,7 @@ int check_textures(char *str)
         return (0);
     }
     close(fd);
+    free_double_pointer(split);
     return(1);
 }
 

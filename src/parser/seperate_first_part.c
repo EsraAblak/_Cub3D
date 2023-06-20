@@ -37,7 +37,7 @@ int match_colors(t_cub *cub, int start)
         return (1);
     }
     if (cub->map[start] == 'C' && cub->map[start+1] != '\0'
-        &&  cub->map[start+1] == ' ')
+        &&  cub->map[start + 1] == ' ')
     {
         cub->ceiling = line(cub,start);
         return (1);
@@ -126,8 +126,8 @@ void seperate_first_part(t_cub *cub)
     if (correct != 6)
     {
         printf("first part wrong\n");
+        free_first_part(cub);
         system("leaks cub3d");
-        // free_first_part(cub);
         exit(1);
     }
 }
