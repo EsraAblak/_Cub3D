@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:41:48 by mmesum            #+#    #+#             */
-/*   Updated: 2023/06/20 18:30:29 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 19:29:16 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ void	draw_images(t_all *all, int x)
 		all->rc->text_x = hit_image.img_width - all->rc->text_x - 1;
 	if (all->rc->side == 1 && all->rc->raydir_y < 0)
 		all->rc->text_x = hit_image.img_width - all->rc->text_x - 1;
-	all->rc->tex_pos = (all->rc->draw_start - all->rc->window_width / 2
-			+ all->rc->line_height / 2) * all->rc->step;
-	all->rc->draw_start = all->rc->draw_start;
 	all->rc->tex_step = 1.0 * hit_image.img_width / all->rc->line_height;
+	all->rc->tex_pos = (all->rc->draw_start - all->rc->window_height / 2
+			+ all->rc->line_height / 2) * all->rc->tex_step;
+	all->rc->draw_start = all->rc->draw_start;
 	while (all->rc->draw_start < all->rc->draw_end)
 	{
 		all->rc->tex_pos += all->rc->tex_step;

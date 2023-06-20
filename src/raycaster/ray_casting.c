@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:17:10 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/20 18:16:39 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 19:20:21 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	dda(t_all *all)
 void	draw_wall(t_all *all)
 {
 	if (all->rc->side == 0)
-		all->rc->perpwall_dist = (all->rc->sidedist_x - all->rc->deltadist_x);
+		all->rc->perpwall_dist = all->rc->sidedist_x - all->rc->deltadist_x;
 	else
 		all->rc->perpwall_dist = (all->rc->sidedist_y - all->rc->deltadist_y);
 	all->rc->line_height = (int)(all->rc->window_height
@@ -118,7 +118,7 @@ void	ray_casting(t_all *all)
 		dda(all);
 		draw_wall(all);
 		draw_images(all,x);
-		// colored(all,x);
+
 		x++;
 	}
 	mlx_put_image_to_window(all->mlx->mlx_init, all->mlx->mlx_window,
