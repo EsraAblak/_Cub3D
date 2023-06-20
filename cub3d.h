@@ -162,6 +162,9 @@ typedef struct s_cub
 	int		c_color;
 	int		f_color;
 	char	*map_reference;
+	char **double_ptr_map;
+	int	map_x;
+	int map_y;
 
 } t_cub;
 
@@ -209,4 +212,7 @@ void	handle_color(t_cub *cub, char *str);
 void take_second_part(t_cub *cub);
 void second_part_checkers(t_cub *cub);
 int double_pointer_len(char **str);
+int wall_check(t_cub *cub);
+int player_count(t_cub *cub);
+void double_ptr_map(t_cub *cub);
 #endif

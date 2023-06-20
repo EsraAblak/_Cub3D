@@ -49,4 +49,5 @@ void divide_cub(t_cub *cub)
     first_part_checkers(cub);
     take_second_part(cub);
     second_part_checkers(cub);
+    double_ptr_map(cub);
 }

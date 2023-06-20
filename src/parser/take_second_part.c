@@ -30,5 +30,28 @@ void take_second_part(t_cub *cub)
         free_first_part(cub);
         exit(1);
     }
-    //kontrollerden sonra burada tekrar player ata 
+}
+
+void double_ptr_map(t_cub *cub)
+{
+    cub->double_ptr_map = ft_split(cub->map_reference,'\n');
+    int	i;
+	int	j;
+
+	i = -1;
+	while (cub->double_ptr_map[++i])
+	{
+		j = -1;
+		while (cub->double_ptr_map[i][++j])
+		{
+			if (cub->double_ptr_map[i][j] == 'N' ||
+				cub->double_ptr_map[i][j] == 'E' ||
+				cub->double_ptr_map[i][j] == 'W' || cub->double_ptr_map[i][j] == 'S')
+			{
+				cub->map_x = j;
+				cub->map_y = i;
+				return ;
+			}
+		}
+	}
 }

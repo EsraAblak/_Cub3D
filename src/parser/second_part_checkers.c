@@ -62,17 +62,13 @@ int map_count(t_cub *cub)
 }
 
 void second_part_checkers(t_cub *cub)
-{
-    //map içinde farklı karakter
-    //birden fazla map
-    // bos satır
-    // açık duvar
-    // birden fazla karakter
-    
-    if (map_character(cub) || map_count(cub))
+{   
+    if (map_character(cub) || map_count(cub) 
+        || wall_check(cub) || player_count(cub))
     {
         printf("map hatasi\n");
-        free(cub->map_reference);
+        if (cub->map_reference != NULL)
+            free(cub->map_reference);
         free_first_part(cub);
         exit(1);
     }
