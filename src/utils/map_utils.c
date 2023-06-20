@@ -30,17 +30,10 @@ int	find_max_len(char **map)
 
 void	free_all(t_all *all)
 {
-	free_map(all->map);
 	free(all->rc);
 	free(all->mlx);
+	free(all->cub);
 	free(all);
-}
-
-void	safe_exit(t_map *map)
-{
-	printf("Error\n");
-	free_map(map);
-	exit(1);
 }
 
 int	ft_close(t_all *all)

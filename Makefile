@@ -61,14 +61,7 @@ SRCS        :=      get_next_line/get_next_line.c \
                           libft/ft_toupper.c \
                           main.c \
                           src/utils/utils.c \
-                          src/gets/get_directions.c\
                           src/utils/read_map.c\
-                          src/gets/get_colors.c\
-                          src/gets/get_map.c\
-                          src/gets/get_xpm.c\
-                          src/checkers/checkers.c\
-                          src/checkers/check_map.c\
-                          src/checkers/check_player.c\
                           src/utils/map_utils.c\
                           src/raycaster/first_definitions.c\
                           src/raycaster/_mlx.c\
@@ -76,7 +69,6 @@ SRCS        :=      get_next_line/get_next_line.c \
                           src/hooks/keyhooks.c\
                           src/hooks/direction_keys.c\
                           src/raycaster/draw_images.c\
-                          src/checkers/checker_utils.c\
                           src/utils/map_index_utils.c\
                           src/parser/get_cub.c\
                           src/parser/divide_cub.c\

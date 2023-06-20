@@ -21,13 +21,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define W_KEY 13
-# define A_KEY 0
-# define S_KEY 1
-# define D_KEY 2
-# define RIGHT_ARROW_KEY 124
-# define LEFT_ARROW_KEY 123
-# define ESC_KEY 53
+// # define W_KEY 13
+// # define A_KEY 0
+// # define S_KEY 1
+// # define D_KEY 2
+// # define RIGHT_ARROW_KEY 124
+// # define LEFT_ARROW_KEY 123
+// # define ESC_KEY 53
+
+#define W_KEY 119
+#define A_KEY 97
+#define S_KEY 115
+#define D_KEY 100
+#define RIGHT_ARROW_KEY 65363
+#define LEFT_ARROW_KEY 65361
+#define ESC_KEY 65307
 
 typedef enum e_direction
 {
@@ -166,7 +174,7 @@ typedef struct s_cub
 
 typedef struct s_all
 {
-	t_map		*map;
+	// t_map		*map;
 	t_rc		*rc;
 	t_mlx		*mlx;
 	t_cub		*cub;
@@ -179,16 +187,9 @@ void			free_double_pointer(char **args);
 int				check_cub(char *arg);
 char			**read_map(char *map, t_map *_map);
 int				check_str(char *str);
-void			get_colors(char **all_map, int i, t_map *map);
-void			get_images(char **all_map, t_map *map);
-void			get_map(char **all_map, int i, t_map *map);
-void			checkers(t_map *map);
 void			free_map(t_map *map);
-void			check_map(t_map *map);
 int				double_ptr_len(char **args);
 void			safe_exit(t_map *map);
-void			check_player(t_map *map);
-// t_all			*first_definitions(t_map *map);
 int				find_max_len(char **map);
 void			_mlx(t_all *all);
 void			ray_casting(t_all *all);
@@ -200,11 +201,7 @@ void			get_xpm(t_all *all);
 void			draw_images(t_all *all, int x);
 int				ft_close(t_all *all);
 t_direction		get_type(char *str);
-int				is_color(char *str);
 int				is_empty(char *str);
-int				find_i(char **all_map);
-void			check_invalid_map(t_map *map);
-int				check_location(char **map, int i, int j);
 void			map_start_index(char *all_line, t_map *map);
 int				is_map_started(char *all_line, int start, int end);
 void			find_map(char *all_line, int start, t_map *map);

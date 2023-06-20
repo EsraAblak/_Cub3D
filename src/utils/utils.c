@@ -50,29 +50,29 @@ int	check_cub(char *arg)
 	return (0);
 }
 
-void	free_map(t_map *map)
-{
-	int	i;
+// void	free_map(t_map *map)
+// {
+// 	int	i;
 
-	i = 0;
-	if (map->image != NULL)
-	{
-		while (i < 4)
-		{
-			if (map->image[i].type != UNKNOWN)
-				free(map->image[i].path);
-			i++;
-		}
-		free(map->image);
-	}
-	if (map->map != NULL)
-		free_double_pointer(map->map);
-	if (map->c_map != NULL)
-		free(map->c_map);
-	if (map->mmap != NULL)
-		free_double_pointer(map->mmap);
-	free(map);
-}
+// 	i = 0;
+// 	if (map->image != NULL)
+// 	{
+// 		while (i < 4)
+// 		{
+// 			if (map->image[i].type != UNKNOWN)
+// 				free(map->image[i].path);
+// 			i++;
+// 		}
+// 		free(map->image);
+// 	}
+// 	if (map->map != NULL)
+// 		free_double_pointer(map->map);
+// 	if (map->c_map != NULL)
+// 		free(map->c_map);
+// 	if (map->mmap != NULL)
+// 		free_double_pointer(map->mmap);
+// 	free(map);
+// }
 
 int	double_ptr_len(char **args)
 {
