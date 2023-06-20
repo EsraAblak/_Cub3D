@@ -60,16 +60,12 @@ SRCS        :=      get_next_line/get_next_line.c \
                           libft/ft_tolower.c \
                           libft/ft_toupper.c \
                           main.c \
-                          src/utils/utils.c \
-                          src/utils/read_map.c\
-                          src/utils/map_utils.c\
                           src/raycaster/first_definitions.c\
                           src/raycaster/_mlx.c\
                           src/raycaster/ray_casting.c\
                           src/hooks/keyhooks.c\
                           src/hooks/direction_keys.c\
                           src/raycaster/draw_images.c\
-                          src/utils/map_index_utils.c\
                           src/parser/get_cub.c\
                           src/parser/divide_cub.c\
                           src/parser/seperate_first_part.c\

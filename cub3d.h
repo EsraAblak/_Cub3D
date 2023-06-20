@@ -174,7 +174,6 @@ typedef struct s_cub
 
 typedef struct s_all
 {
-	// t_map		*map;
 	t_rc		*rc;
 	t_mlx		*mlx;
 	t_cub		*cub;
@@ -185,7 +184,7 @@ typedef struct s_all
 
 void			free_double_pointer(char **args);
 int				check_cub(char *arg);
-char			**read_map(char *map, t_map *_map);
+// char			**read_map(char *map, t_map *_map);
 int				check_str(char *str);
 void			free_map(t_map *map);
 int				double_ptr_len(char **args);

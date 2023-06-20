@@ -97,3 +97,43 @@ void	get_xpm(t_all *all)
 	}
 	check_image(all);
 }
+
+
+void	free_all(t_all *all)
+{
+	free(all->rc);
+	free(all->mlx);
+	free(all->cub);
+	free(all);
+}
+
+int	ft_close(t_all *all)
+{
+	free_all(all);
+	exit(1);
+	return (1);
+}
+
+void	free_double_pointer(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i] != NULL)
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
+}
+
+int	check_cub(char *arg)
+{
+	int	len;
+
+	len = ft_strlen(arg);
+	if (arg[len - 1] == 'b' && arg[len - 2] == 'u' && arg[len - 3] == 'c'
+		&& arg[len - 4] == '.')
+		return (1);
+	return (0);
+}
