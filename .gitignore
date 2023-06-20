@@ -2,3 +2,4 @@
 *.a
 cub3d
 mlx-test
+.vscode

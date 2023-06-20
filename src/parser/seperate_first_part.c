@@ -106,6 +106,12 @@ void seperate_first_part(t_cub *cub)
     i = 0;
     correct = 0;
     start = 0;
+    cub->_ea = NULL;
+    cub->_we = NULL;
+    cub->_so = NULL;
+    cub->_no = NULL;
+    cub->floor = NULL;
+    cub->ceiling = NULL;
     while(i < *cub->fp_last_index)
     {
         start = i;
@@ -120,8 +126,8 @@ void seperate_first_part(t_cub *cub)
     if (correct != 6)
     {
         printf("first part wrong\n");
-        // system("leaks cub3d");
-        free_first_part(cub);
+        system("leaks cub3d");
+        // free_first_part(cub);
         exit(1);
     }
 }
