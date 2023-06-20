@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:20:43 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/20 14:07:33 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 14:15:37 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,6 @@ typedef struct s_raycasting
 	double		plane_y;
 	double		scale_x;
 	double		scale_y;
-
-	int			key_a;
-	int			key_w;
-	int			key_s;
-	int			key_d;
 
 	double		camera_x;
 	double		raydir_x;
