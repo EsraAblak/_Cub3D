@@ -44,32 +44,12 @@ void first_part_checkers(t_cub *cub)
 {
     if ((cub->_ea) == NULL || (cub->_we) == NULL
         || (cub->_so) == NULL|| (cub->_no) == NULL)
-    {
-        printf("eksik texturtes\n");
-        free_first_part(cub);
-        system("leaks cub3d");
-        exit(1);
-    }
+            fp_exit(cub);
     if (check_textures(cub->_ea) == 0 || check_textures(cub->_we) == 0
         || check_textures(cub->_so) == 0|| check_textures(cub->_no) == 0)
-    {
-        printf("hatali texturtes\n");
-        free_first_part(cub);
-        system("leaks cub3d");
-        exit(1);
-    }
+            fp_exit(cub);
     if (cub->floor  == NULL || cub->ceiling == NULL)
-     {
-        printf("hatali color\n");
-        free_first_part(cub);
-        system("leaks cub3d");
-        exit(1);
-    }
+        fp_exit(cub);
     if (check_color_error(cub, cub->ceiling) == 0 || check_color_error(cub, cub->floor) == 0)
-    {
-        printf("hatali color\n");
-        free_first_part(cub);
-        system("leaks cub3d");
-        exit(1);
-    }
+        fp_exit(cub);
 }

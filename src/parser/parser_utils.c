@@ -109,17 +109,7 @@ void	free_all(t_all *all)
 
 int	ft_close(t_all *all)
 {	
-	mlx_clear_window(all->mlx->mlx_init, all->mlx->mlx_window);
-	mlx_destroy_image(all->mlx->mlx_init, all->mlx->mlx_img);
-	mlx_destroy_window(all->mlx->mlx_init, all->mlx->mlx_window);
-	free_double_pointer(all->cub->double_ptr_map);
-	free_first_part(all->cub);
-	free(all->cub->map_reference);
-	free(all->cub->map);
-	free_images(all);
-	free_all(all);
-	system("leaks cub3d");
-	exit(1);
+	game_exit(all);
 	return (1);
 }
 

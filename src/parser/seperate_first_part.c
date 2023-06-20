@@ -33,13 +33,15 @@ int match_colors(t_cub *cub, int start)
     if (cub->map[start] == 'F' && cub->map[start+1] != '\0'
         &&  cub->map[start+1] == ' ')
     {
-        cub->floor = line(cub,start);
+        if (cub->floor == NULL)
+            cub->floor = line(cub,start);
         return (1);
     }
     if (cub->map[start] == 'C' && cub->map[start+1] != '\0'
         &&  cub->map[start + 1] == ' ')
     {
-        cub->ceiling = line(cub,start);
+        if (cub->ceiling == NULL)
+            cub->ceiling = line(cub,start);
         return (1);
     }
     return (0);
@@ -52,28 +54,32 @@ int match_line(t_cub *cub, int start)
         &&  cub->map[start+1] == 'A' && cub->map[start+2] != '\0'
             && cub->map[start+2] == ' ')
     {
-        cub->_ea = line(cub,start);
+        if (cub->_ea == NULL)
+            cub->_ea = line(cub,start);
         return (1);
     }
     if (cub->map[start] == 'N' && cub->map[start+1] != '\0'
         &&  cub->map[start+1] == 'O' && cub->map[start+2] != '\0'
             && cub->map[start+2] == ' ')
     {
-        cub->_no = line(cub,start);
+        if (cub->_no == NULL)
+            cub->_no = line(cub,start);
         return (1);
     }
     if (cub->map[start] == 'S' && cub->map[start+1] != '\0'
         &&  cub->map[start+1] == 'O' && cub->map[start+2] != '\0'
             && cub->map[start+2] == ' ')
     {
-        cub->_so = line(cub,start);
+        if (cub->_so == NULL)
+            cub->_so = line(cub,start);
         return (1);
     }
     if (cub->map[start] == 'W' && cub->map[start+1] != '\0'
         &&  cub->map[start+1] == 'E' && cub->map[start+2] != '\0'
             && cub->map[start+2] == ' ')
     {
-        cub->_we = line(cub,start);
+        if (cub->_we == NULL)
+            cub->_we = line(cub,start);
         return (1);
     }
     if (match_colors(cub,start))
@@ -124,10 +130,5 @@ void seperate_first_part(t_cub *cub)
             i++;
     }
     if (correct != 6)
-    {
-        printf("first part wrong\n");
-        free_first_part(cub);
-        system("leaks cub3d");
-        exit(1);
-    }
+        fp_exit(cub);
 }

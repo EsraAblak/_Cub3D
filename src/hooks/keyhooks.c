@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:39:52 by mmesum            #+#    #+#             */
-/*   Updated: 2023/06/20 13:51:41 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 14:05:43 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,7 @@ int	key_pressed(int keycode, t_all *all)
 	move_keys(all, keycode);
 	if (keycode == ESC_KEY)
 	{
-		mlx_clear_window(all->mlx->mlx_init, all->mlx->mlx_window);
-		mlx_destroy_image(all->mlx->mlx_init, all->mlx->mlx_img);
-		mlx_destroy_window(all->mlx->mlx_init, all->mlx->mlx_window);
-		free_double_pointer(all->cub->double_ptr_map);
-		free_first_part(all->cub);
-		free(all->cub->map_reference);
-    	free(all->cub->map);
-		free_images(all);
-		free_all(all);
-
-		exit(0);
+		game_exit(all);
 	}
 	handle_directions(all, keycode);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:20:43 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/20 13:50:33 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 14:07:33 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,13 @@ typedef struct s_raycasting
 	double		move_speed;
 	double		rot_speed;
 	int			tex_y;
-
 	double		wall_x;
 	double		step;
 	int			start;
+	int			w_key;
+	int			a_key;
+	int			s_key;
+	int			d_key;
 }				t_rc;
 
 typedef struct s_mlx
@@ -147,30 +150,26 @@ typedef struct s_mlx
 	int			endian;
 }				t_mlx;
 
-
 //new struct
 typedef struct s_cub
 {
-	char	*map;
-    char	**first_part;
-	int		*fp_last_index;
-	char	*_ea;
-	char	*_no;
-	char	*_so;
-	char	*_we;
-	char	*floor;
-	char	*ceiling;
-	int		c_color;
-	int		f_color;
-	char	*map_reference;
-	char **double_ptr_map;
-	int	map_x;
-	int map_y;
+	char		*map;
+	char		**first_part;
+	int			*fp_last_index;
+	char		*_ea;
+	char		*_no;
+	char		*_so;
+	char		*_we;
+	char		*floor;
+	char		*ceiling;
+	int			c_color;
+	int			f_color;
+	char		*map_reference;
+	char		**double_ptr_map;
+	int			map_x;
+	int			map_y;
 	t_image		*image;
-} t_cub;
-
-
-
+}				t_cub;
 
 typedef struct s_all
 {
@@ -178,9 +177,6 @@ typedef struct s_all
 	t_mlx		*mlx;
 	t_cub		*cub;
 }				t_all;
-
-
-
 
 void			free_double_pointer(char **args);
 int				check_cub(char *arg);
@@ -206,19 +202,22 @@ int				is_map_started(char *all_line, int start, int end);
 void			find_map(char *all_line, int start, t_map *map);
 
 //new functions
-void get_cub(char *arg,t_cub *cub);
-void divide_cub(t_cub *cub);
-void seperate_first_part(t_cub *cub);
-void first_part_checkers(t_cub *cub);
-void free_first_part(t_cub *cub);
-void	handle_color(t_cub *cub, char *str);
-void take_second_part(t_cub *cub);
-void second_part_checkers(t_cub *cub);
-int double_pointer_len(char **str);
-int wall_check(t_cub *cub);
-int player_count(t_cub *cub);
-void double_ptr_map(t_cub *cub);
-t_all *first_definitions(t_cub *cub);
-void	assign_images(t_cub *cub);
-void free_images(t_all *all);
+void			get_cub(char *arg, t_cub *cub);
+void			divide_cub(t_cub *cub);
+void			seperate_first_part(t_cub *cub);
+void			first_part_checkers(t_cub *cub);
+void			free_first_part(t_cub *cub);
+void			handle_color(t_cub *cub, char *str);
+void			take_second_part(t_cub *cub);
+void			second_part_checkers(t_cub *cub);
+int				double_pointer_len(char **str);
+int				wall_check(t_cub *cub);
+int				player_count(t_cub *cub);
+void			double_ptr_map(t_cub *cub);
+t_all			*first_definitions(t_cub *cub);
+void			assign_images(t_cub *cub);
+void			free_images(t_all *all);
+void			fp_exit(t_cub *cub);
+void			sp_exit(t_cub *cub);
+void			game_exit(t_all *all);
 #endif

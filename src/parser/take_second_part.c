@@ -24,12 +24,7 @@ void take_second_part(t_cub *cub)
     }
     cub->map_reference[i] = '\0';
     if (cub->map_reference[0] == '\0')
-    {
-        free(cub->map_reference);
-        printf("null mapreference\n");
-        free_first_part(cub);
-        exit(1);
-    }
+        sp_exit(cub);
 }
 
 void double_ptr_map(t_cub *cub)
