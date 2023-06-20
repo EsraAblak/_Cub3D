@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:17:10 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/05 16:22:39 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 18:07:36 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,25 @@ void	draw_wall(t_all *all)
 	if (all->rc->draw_end >= all->rc->window_height)
 		all->rc->draw_end = all->rc->window_height - 1;
 }
+void	colored(t_all *all, int x)
+{
+	int	start;
+
+	start = all->rc->draw_start;
+	while (start < all->rc->draw_end)
+	{
+		all->rc->tex_pos += all->rc->tex_step;
+		if (all->rc->side == 0 && all->rc->raydir_x > 0)
+			all->mlx->mlx_img_addr[start * all->rc->window_width + x] = 0xFF0000;
+		else if (all->rc->side == 0 && all->rc->raydir_x < 0)
+			all->mlx->mlx_img_addr[start * all->rc->window_width  + x] = 0x0000FF;
+		else if (all->rc->side == 1 && all->rc->raydir_x > 0)
+			all->mlx->mlx_img_addr[start * all->rc->window_width  + x] = 0xFF00FF;
+		else
+			all->mlx->mlx_img_addr[start * all->rc->window_width  + x] = 0x00FF00;
+		start++;
+	}
+}
 
 void	ray_casting(t_all *all)
 {
@@ -93,16 +112,14 @@ void	ray_casting(t_all *all)
 			* all->rc->camera_x;
 		all->rc->map_x = all->rc->pos_x;
 		all->rc->map_y = all->rc->pos_y;
-		all->rc->deltadist_x = sqrt(1 + (all->rc->raydir_y * all->rc->raydir_y)
-				/ (all->rc->raydir_x * all->rc->raydir_x));
-		all->rc->deltadist_y = sqrt(1 + (all->rc->raydir_x * all->rc->raydir_x)
-				/ (all->rc->raydir_y * all->rc->raydir_y));
+		all->rc->deltadist_x = fabs(1 / all->rc->raydir_x);
+		all->rc->deltadist_y = fabs(1 / all->rc->raydir_y);
 		pre_dda(all);
 		dda(all);
 		draw_wall(all);
-		draw_images(all, x);
+		draw_images(all,x);
 		x++;
 	}
 	mlx_put_image_to_window(all->mlx->mlx_init, all->mlx->mlx_window,
-		all->mlx->mlx_img, 0, 0);
+			all->mlx->mlx_img, 0, 0);
 }
