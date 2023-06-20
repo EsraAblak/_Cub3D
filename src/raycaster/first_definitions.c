@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:17:04 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/05 16:20:28 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/20 14:33:57 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void	find_dir(t_all *all)
 	else if (all->cub->double_ptr_map[y][x] == 'W')
 	{
 		all->rc->dir_x = 0;
-		all->rc->dir_y = 1;
+		all->rc->dir_y = -1;
 	}
 	else if (all->cub->double_ptr_map[y][x] == 'E')
 	{
 		all->rc->dir_x = 0;
-		all->rc->dir_y = -1;
+		all->rc->dir_y = 1;
 	}
 }
 
