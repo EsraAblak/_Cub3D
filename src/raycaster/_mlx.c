@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:16:58 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/20 14:27:32 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:13:10 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ int	engrave(t_all *all)
 	return (1);
 }
 
-int  key_released(int keycode,t_all *all)
+int	key_released(int keycode, t_all *all)
 {
-	if(keycode == W_KEY)
+	if (keycode == W_KEY)
 		all->rc->w_key = 0;
-	else if(keycode == A_KEY)
+	else if (keycode == A_KEY)
 		all->rc->a_key = 0;
-	else if(keycode == S_KEY)
+	else if (keycode == S_KEY)
 		all->rc->s_key = 0;
-	else if(keycode == D_KEY)
+	else if (keycode == D_KEY)
 		all->rc->d_key = 0;
-	return 0;
+	return (0);
 }
 
 void	_mlx(t_all *all)
@@ -86,7 +86,7 @@ void	_mlx(t_all *all)
 	get_xpm(all);
 	set_keys(all);
 	mlx_hook(all->mlx->mlx_window, 2, 1L << 0, &key_pressed, all);
-	mlx_hook(all->mlx->mlx_window ,3 ,1L<< 0, &key_released, all);
+	mlx_hook(all->mlx->mlx_window, 3, 1L << 0, &key_released, all);
 	mlx_loop_hook(all->mlx->mlx_init, &engrave, all);
 	mlx_hook(all->mlx->mlx_window, 17, 0, ft_close, all);
 	mlx_loop(all->mlx->mlx_init);

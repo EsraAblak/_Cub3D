@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_prehooks.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/21 11:12:32 by eablak            #+#    #+#             */
+/*   Updated: 2023/06/21 11:14:12 by eablak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 void	check_image(t_all *all)
@@ -22,7 +34,6 @@ void	get_xpm(t_all *all)
 	int	i;
 
 	i = 0;
-
 	while (i < 4)
 	{
 		all->cub->image[i].img = mlx_xpm_file_to_image(all->mlx->mlx_init,
@@ -38,7 +49,7 @@ void	get_xpm(t_all *all)
 	check_image(all);
 }
 
-void set_keys(t_all *all)
+void	set_keys(t_all *all)
 {
 	all->rc->a_key = 0;
 	all->rc->w_key = 0;

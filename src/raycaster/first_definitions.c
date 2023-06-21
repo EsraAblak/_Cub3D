@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:17:04 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/20 14:33:57 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/21 11:13:36 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	find_pos(t_all *all)
 		{
 			if (all->cub->double_ptr_map[i][j] == 'N' ||
 				all->cub->double_ptr_map[i][j] == 'E' ||
-				all->cub->double_ptr_map[i][j] == 'W' || all->cub->double_ptr_map[i][j] == 'S')
+				all->cub->double_ptr_map[i][j] == 'W' ||
+				all->cub->double_ptr_map[i][j] == 'S')
 			{
 				all->rc->pos_x = j;
 				all->rc->pos_y = i;
