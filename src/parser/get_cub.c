@@ -57,7 +57,7 @@ void control_cub(t_cub *cub)
     if (is_empty)
     {
         printf("unworkable cub file\n");
-        free(cub); //leak
+        free(cub);
         exit(1);
     }
 }
@@ -69,7 +69,7 @@ void get_cub(char *arg, t_cub *cub)
     if (!cub->map)
     {
         printf("empty cub\n");
-        free(cub); //leak
+        free(cub);
         exit(1);
     }
     control_cub(cub);

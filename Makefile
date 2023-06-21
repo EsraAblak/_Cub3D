@@ -74,8 +74,11 @@ SRCS        :=      get_next_line/get_next_line.c \
                           src/parser/take_second_part.c\
                           src/parser/second_part_checkers.c\
                           src/parser/parser_utils.c\
-                          src/parser/map_controls.c\
+                          src/parser/assign_images.c\
                           src/parser/exit_func.c\
+                          src/parser/map_count.c\
+                          src/raycaster/mlx_prehooks.c\
+                          src/hooks/check_keys.c\
 
 OBJS        := $(SRCS:.c=.o)
 

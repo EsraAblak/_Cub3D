@@ -47,25 +47,8 @@ int match_colors(t_cub *cub, int start)
     return (0);
 }
 
-int match_line(t_cub *cub, int start)
+int match_line_rest(t_cub *cub, int start)
 {
-    
-    if (cub->map[start] == 'E' && cub->map[start+1] != '\0'
-        &&  cub->map[start+1] == 'A' && cub->map[start+2] != '\0'
-            && cub->map[start+2] == ' ')
-    {
-        if (cub->_ea == NULL)
-            cub->_ea = line(cub,start);
-        return (1);
-    }
-    if (cub->map[start] == 'N' && cub->map[start+1] != '\0'
-        &&  cub->map[start+1] == 'O' && cub->map[start+2] != '\0'
-            && cub->map[start+2] == ' ')
-    {
-        if (cub->_no == NULL)
-            cub->_no = line(cub,start);
-        return (1);
-    }
     if (cub->map[start] == 'S' && cub->map[start+1] != '\0'
         &&  cub->map[start+1] == 'O' && cub->map[start+2] != '\0'
             && cub->map[start+2] == ' ')
@@ -87,21 +70,30 @@ int match_line(t_cub *cub, int start)
     return (0);
 }
 
-void free_first_part(t_cub *cub)
+int match_line(t_cub *cub, int start)
 {
-    if (cub->_ea != NULL)
-        free(cub->_ea);
-    if (cub->_we != NULL)
-        free(cub->_we);
-    if (cub->_so != NULL)
-        free(cub->_so);
-    if (cub->_no != NULL)
-        free(cub->_no);
-    if (cub->floor != NULL)
-        free(cub->floor);
-    if (cub->ceiling != NULL)
-        free(cub->ceiling);
+    
+    if (cub->map[start] == 'E' && cub->map[start+1] != '\0'
+        &&  cub->map[start+1] == 'A' && cub->map[start+2] != '\0'
+            && cub->map[start+2] == ' ')
+    {
+        if (cub->_ea == NULL)
+            cub->_ea = line(cub,start);
+        return (1);
+    }
+    if (cub->map[start] == 'N' && cub->map[start+1] != '\0'
+        &&  cub->map[start+1] == 'O' && cub->map[start+2] != '\0'
+            && cub->map[start+2] == ' ')
+    {
+        if (cub->_no == NULL)
+            cub->_no = line(cub,start);
+        return (1);
+    }
+    if (match_line_rest(cub, start))
+        return (1);
+    return (0);
 }
+
 
 void seperate_first_part(t_cub *cub)
 {
@@ -112,12 +104,7 @@ void seperate_first_part(t_cub *cub)
     i = 0;
     correct = 0;
     start = 0;
-    cub->_ea = NULL;
-    cub->_we = NULL;
-    cub->_so = NULL;
-    cub->_no = NULL;
-    cub->floor = NULL;
-    cub->ceiling = NULL;
+    initalize_cub(cub);
     while(i < *cub->fp_last_index)
     {
         start = i;

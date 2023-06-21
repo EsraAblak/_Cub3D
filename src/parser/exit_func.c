@@ -1,10 +1,19 @@
 #include "../../cub3d.h"
 
+void initalize_cub(t_cub *cub)
+{
+    cub->_ea = NULL;
+    cub->_we = NULL;
+    cub->_so = NULL;
+    cub->_no = NULL;
+    cub->floor = NULL;
+    cub->ceiling = NULL;
+}
+
 void fp_exit(t_cub *cub)
 {
-    printf("first part wrong\n");
+    printf("Error\n");
     free_first_part(cub);
-    system("leaks cub3D");
     exit(1);
 }
 
@@ -12,10 +21,17 @@ void sp_exit(t_cub *cub)
 {
     if (cub->map_reference != NULL)
         free(cub->map_reference);
-    printf("null mapreference\n");
+    printf("Error\n");
     free_first_part(cub);
     exit(1);
 }
+
+int	ft_close(t_all *all)
+{	
+	game_exit(all);
+	return (1);
+}
+
 void game_exit(t_all *all)
 {
         mlx_clear_window(all->mlx->mlx_init, all->mlx->mlx_window);
@@ -27,6 +43,5 @@ void game_exit(t_all *all)
     	free(all->cub->map);
 		free_images(all);
 		free_all(all);
-        system("leaks cub3D");
-		exit(0);
+        exit(0);
 }

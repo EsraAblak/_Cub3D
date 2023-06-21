@@ -12,6 +12,17 @@
 
 #include "cub3d.h"
 
+int	check_cub(char *arg)
+{
+	int	len;
+
+	len = ft_strlen(arg);
+	if (arg[len - 1] == 'b' && arg[len - 2] == 'u' && arg[len - 3] == 'c'
+		&& arg[len - 4] == '.')
+		return (1);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	if (ac != 2 || !check_cub(av[1]))

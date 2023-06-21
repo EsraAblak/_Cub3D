@@ -95,13 +95,11 @@ t_all	*first_definitions(t_cub *cub)
 	all = malloc(sizeof(t_all));
 	all->rc = malloc(sizeof(t_rc));
 	all->mlx = malloc(sizeof(t_mlx));
-	// all->map = map;
 	all->cub = cub;
 	all->rc->window_height = 1080;
 	all->rc->window_width = 1920;
 	find_pos(all);
 	find_dir(all);
 	find_plane(all);
-
 	return (all);
 }

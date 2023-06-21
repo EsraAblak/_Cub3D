@@ -21,21 +21,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define W_KEY 13
-# define A_KEY 0
-# define S_KEY 1
-# define D_KEY 2
-# define RIGHT_ARROW_KEY 124
-# define LEFT_ARROW_KEY 123
-# define ESC_KEY 53
+// # define W_KEY 13
+// # define A_KEY 0
+// # define S_KEY 1
+// # define D_KEY 2
+// # define RIGHT_ARROW_KEY 124
+// # define LEFT_ARROW_KEY 123
+// # define ESC_KEY 53
 
-// #define W_KEY 119
-// #define A_KEY 97
-// #define S_KEY 115
-// #define D_KEY 100
-// #define RIGHT_ARROW_KEY 65363
-// #define LEFT_ARROW_KEY 65361
-// #define ESC_KEY 65307
+#define W_KEY 119
+#define A_KEY 97
+#define S_KEY 115
+#define D_KEY 100
+#define RIGHT_ARROW_KEY 65363
+#define LEFT_ARROW_KEY 65361
+#define ESC_KEY 65307
 
 typedef enum e_direction
 {
@@ -58,32 +58,6 @@ typedef struct s_image
 	int			line_length;
 	int			endian;
 }				t_image;
-
-typedef struct s_map
-{
-	t_image		*image;
-	char		**map;
-	int			floor_color;
-	int			ceiling_color;
-
-	int			start_index;
-	char		*c_map;
-	char		**mmap;
-	char		**copy_mmap;
-	int			map_x;
-	int			map_y;
-}				t_map;
-
-typedef struct s_map_help
-{
-	int			i;
-	int			no;
-	int			fd;
-	int			so;
-	int			we;
-	int			ea;
-	int			d;
-}				t_help;
 
 typedef struct s_raycasting
 {
@@ -145,7 +119,6 @@ typedef struct s_mlx
 	int			endian;
 }				t_mlx;
 
-//new struct
 typedef struct s_cub
 {
 	char		*map;
@@ -175,11 +148,8 @@ typedef struct s_all
 
 void			free_double_pointer(char **args);
 int				check_cub(char *arg);
-// char			**read_map(char *map, t_map *_map);
 int				check_str(char *str);
-void			free_map(t_map *map);
 int				double_ptr_len(char **args);
-void			safe_exit(t_map *map);
 int				find_max_len(char **map);
 void			_mlx(t_all *all);
 void			ray_casting(t_all *all);
@@ -192,11 +162,7 @@ void			draw_images(t_all *all, int x);
 int				ft_close(t_all *all);
 t_direction		get_type(char *str);
 int				is_empty(char *str);
-void			map_start_index(char *all_line, t_map *map);
 int				is_map_started(char *all_line, int start, int end);
-void			find_map(char *all_line, int start, t_map *map);
-
-//new functions
 void			get_cub(char *arg, t_cub *cub);
 void			divide_cub(t_cub *cub);
 void			seperate_first_part(t_cub *cub);
@@ -215,4 +181,8 @@ void			free_images(t_all *all);
 void			fp_exit(t_cub *cub);
 void			sp_exit(t_cub *cub);
 void			game_exit(t_all *all);
+void initalize_cub(t_cub *cub);
+int	map_count(t_cub *cub);
+void check_keys(t_all *all);
+void set_keys(t_all *all);
 #endif

@@ -30,6 +30,7 @@ void	move_keys(t_all *all, int keycode)
 	
 	handle_left_right_keys(all, keycode);
 }
+
 void	free_images(t_all *all)
 {
 	int	i;
@@ -39,6 +40,7 @@ void	free_images(t_all *all)
 		free(all->cub->image[i++].path);
 	free(all->cub->image);
 }
+
 int	key_pressed(int keycode, t_all *all)
 {
 	all->rc->move_speed = 0.05;

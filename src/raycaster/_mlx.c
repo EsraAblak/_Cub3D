@@ -47,53 +47,7 @@ void	floor_ceiling_color(t_all *all)
 		}
 	}
 }
-void check_keys_horizontal(t_all *all)
-{
-	if(all->rc->a_key == 1)
-	{
-		if (all->cub->double_ptr_map[(int)(all->rc->pos_y - all->rc->plane_y
-				* all->rc->move_speed)][(int)(all->rc->pos_x - all->rc->plane_x
-				* all->rc->move_speed)] != '1')
-		{
-			all->rc->pos_x -= all->rc->plane_x * all->rc->move_speed;
-			all->rc->pos_y -= all->rc->plane_y * all->rc->move_speed;
-		}
-	}
-	else if(all->rc->d_key == 1)
-	{
-		if (all->cub->double_ptr_map[(int)(all->rc->pos_y + all->rc->plane_y
-		* all->rc->move_speed)][(int)(all->rc->pos_x + all->rc->plane_x
-		* all->rc->move_speed)] != '1')
-		{
-			all->rc->pos_x += all->rc->plane_x * all->rc->move_speed;
-			all->rc->pos_y += all->rc->plane_y * all->rc->move_speed;
-		}
-	}
-}
-void check_keys(t_all *all)
-{
-	if(all->rc->w_key == 1)
-	{
-			if (all->cub->double_ptr_map[(int)(all->rc->pos_y + all->rc->dir_y
-			* all->rc->move_speed)][(int)(all->rc->pos_x + all->rc->dir_x
-			* all->rc->move_speed)] != '1')
-		{
-			all->rc->pos_x += all->rc->dir_x * all->rc->move_speed;
-			all->rc->pos_y += all->rc->dir_y * all->rc->move_speed;
-		}
-	}
-	else if(all->rc->s_key == 1)
-	{
-		if (all->cub->double_ptr_map[(int)(all->rc->pos_y - all->rc->dir_y
-				* all->rc->move_speed)][(int)(all->rc->pos_x - all->rc->dir_x
-				* all->rc->move_speed)] != '1')
-		{
-			all->rc->pos_x -= all->rc->dir_x * all->rc->move_speed;
-			all->rc->pos_y -= all->rc->dir_y * all->rc->move_speed;
-		}
-	} 
-	check_keys_horizontal(all);
-}
+
 int	engrave(t_all *all)
 {
 	clear_img(all);
@@ -102,6 +56,7 @@ int	engrave(t_all *all)
 	check_keys(all);
 	return (1);
 }
+
 int  key_released(int keycode,t_all *all)
 {
 	if(keycode == W_KEY)
@@ -114,13 +69,7 @@ int  key_released(int keycode,t_all *all)
 		all->rc->d_key = 0;
 	return 0;
 }
-void set_keys(t_all *all)
-{
-	all->rc->a_key = 0;
-	all->rc->w_key = 0;
-	all->rc->s_key = 0;
-	all->rc->d_key = 0;
-}
+
 void	_mlx(t_all *all)
 {
 	all->mlx->mlx_init = mlx_init();
