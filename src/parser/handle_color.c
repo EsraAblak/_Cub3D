@@ -40,10 +40,9 @@ int	convert_int(char *str,t_cub *cub)
 	split = ft_split(str, ',');
 	if (double_pointer_len(split) != 3)
 	{
-		printf("color error\n");
+		printf("Error\n");
 		free_double_pointer(split);
 		free_first_part(cub);
-		system("leaks cub3D");
 		exit(1);
 	}
 	red = check_color(split[0]);
@@ -71,7 +70,7 @@ void	handle_color(t_cub *cub, char *str)
     if (i != 2)
     {
 		free_double_pointer(split);
-        printf("color error\n");
+        printf("Error\n");
         free_first_part(cub);
         exit(1);
     }
