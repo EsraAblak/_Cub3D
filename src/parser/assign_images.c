@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   assign_images.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/21 10:59:48 by eablak            #+#    #+#             */
+/*   Updated: 2023/06/21 10:59:49 by eablak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 char	*img_path(char *str)
@@ -39,12 +51,12 @@ t_direction	get_img_type(char *str)
 void	assign_images(t_cub *cub)
 {
 	cub->image = malloc(sizeof(t_image) * 4);
-	cub->image[0].type =  get_img_type(cub->_ea);
-    cub->image[0].path = img_path(cub->_ea);
-	cub->image[1].type =  get_img_type(cub->_no);
-    cub->image[1].path = img_path(cub->_no);
-	cub->image[2].type =  get_img_type(cub->_so);
-    cub->image[2].path = img_path(cub->_so);
-	cub->image[3].type =  get_img_type(cub->_we);
-    cub->image[3].path = img_path(cub->_we);
+	cub->image[0].type = get_img_type(cub->_ea);
+	cub->image[0].path = img_path(cub->_ea);
+	cub->image[1].type = get_img_type(cub->_no);
+	cub->image[1].path = img_path(cub->_no);
+	cub->image[2].type = get_img_type(cub->_so);
+	cub->image[2].path = img_path(cub->_so);
+	cub->image[3].type = get_img_type(cub->_we);
+	cub->image[3].path = img_path(cub->_we);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhooks.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmesum <mmesum@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:39:52 by mmesum            #+#    #+#             */
-/*   Updated: 2023/06/20 14:28:45 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/21 10:57:17 by mmesum           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ void	move_keys(t_all *all, int keycode)
 {
 	if (keycode == W_KEY)
 		all->rc->w_key = 1;
-	
 	else if (keycode == S_KEY)
 		all->rc->s_key = 1;
-	
 	handle_left_right_keys(all, keycode);
 }
 

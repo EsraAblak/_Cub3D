@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   direction_keys.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmesum <mmesum@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 13:39:32 by mmesum            #+#    #+#             */
-/*   Updated: 2023/06/05 16:20:28 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/21 10:57:32 by mmesum           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ int	check_direction(t_all *all)
 		j = 0;
 		while (all->cub->double_ptr_map[i][j] != '\0')
 		{
-			if (all->cub->double_ptr_map[i][j] == 'N' || all->cub->double_ptr_map[i][j] == 'S')
+			if (all->cub->double_ptr_map[i][j] == 'N'
+				|| all->cub->double_ptr_map[i][j] == 'S')
 				return (1);
-			else if (all->cub->double_ptr_map[i][j] == 'E' || all->cub->double_ptr_map[i][j] == 'W')
+			else if (all->cub->double_ptr_map[i][j] == 'E'
+					|| all->cub->double_ptr_map[i][j] == 'W')
 				return (2);
 			j++;
 		}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   second_part_checkers.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/21 10:58:12 by eablak            #+#    #+#             */
+/*   Updated: 2023/06/21 11:07:48 by eablak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 int	map_character(t_cub *cub)
@@ -50,11 +62,8 @@ int	wall_check(t_cub *cub)
 		{
 			if (split[i][j] == '0' || split[i][j] == 'N' || split[i][j] == 'S'
 				|| split[i][j] == 'W' || split[i][j] == 'E')
-				if (!zero_location(split, i, j))
-				{
-					free_double_pointer(split);
+				if (check_zero_location(split, i, j))
 					return (1);
-				}
 			j++;
 		}
 		i++;
@@ -65,8 +74,8 @@ int	wall_check(t_cub *cub)
 
 int	player_count(t_cub *cub)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;

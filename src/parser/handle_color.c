@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handle_color.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/21 11:00:00 by eablak            #+#    #+#             */
+/*   Updated: 2023/06/21 11:00:01 by eablak           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../cub3d.h"
 
 int	is_num(char *str)
@@ -29,7 +41,7 @@ int	check_color(char *num)
 	return (nbr);
 }
 
-int	convert_int(char *str,t_cub *cub)
+int	convert_int(char *str, t_cub *cub)
 {
 	char	**split;
 	int		red;
@@ -60,23 +72,23 @@ int	convert_int(char *str,t_cub *cub)
 
 void	handle_color(t_cub *cub, char *str)
 {
-    int i;
+	int		i;
 	char	**split;
 
-    i = 0;
+	i = 0;
 	split = ft_split(str, ' ');
-    while(split[i])
-        i++;
-    if (i != 2)
-    {
+	while (split[i])
+		i++;
+	if (i != 2)
+	{
 		free_double_pointer(split);
-        printf("Error\n");
-        free_first_part(cub);
-        exit(1);
-    }
+		printf("Error\n");
+		free_first_part(cub);
+		exit(1);
+	}
 	if (split[0][0] == 'F' && split[0][1] == '\0')
-		cub->f_color = convert_int(split[1],cub);
+		cub->f_color = convert_int(split[1], cub);
 	if (split[0][0] == 'C' && split[0][1] == '\0')
-		cub->c_color = convert_int(split[1],cub);
+		cub->c_color = convert_int(split[1], cub);
 	free_double_pointer(split);
 }
