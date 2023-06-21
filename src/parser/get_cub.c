@@ -56,7 +56,7 @@ void control_cub(t_cub *cub)
     }
     if (is_empty)
     {
-        printf("unworkable cub file\n");
+        printf("Error\n");
         free(cub);
         exit(1);
     }
@@ -68,7 +68,7 @@ void get_cub(char *arg, t_cub *cub)
     read_cub(arg,cub);
     if (!cub->map)
     {
-        printf("empty cub\n");
+        printf("Error\n");
         free(cub);
         exit(1);
     }
