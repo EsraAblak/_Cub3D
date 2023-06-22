@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 11:00:04 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/21 11:00:05 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/22 14:29:43 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_map_end(t_cub *cub, int i)
 	while (cub->map_reference[i] != '\0')
 	{
 		if (cub->map_reference[i] != ' ' && cub->map_reference[i] != '\t'
-			&& cub->map_reference[i] != '\n')
+			&& cub->map_reference[i] != '\n' && cub->map_reference[i] != '\0')
 			return (0);
 		i++;
 	}
@@ -47,11 +47,12 @@ int	map_count_main_loop(t_cub *cub, int i, int flag)
 		if (cub->map_reference[i] == '\n')
 		{
 			i += 1;
-			if (cub->map_reference[i] == '\n')
+			if (cub->map_reference[i] == '\n' || cub->map_reference[i] == '\0'
+				|| cub->map_reference[i] == '\t'
+				|| cub->map_reference[i] == ' ')
 			{
 				if (check_map_end(cub, i))
 					return (0);
-				return (1);
 			}
 			flag = 0;
 			map_count_loop(cub, &i, &flag);

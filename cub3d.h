@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:20:43 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/21 11:07:24 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/22 14:30:50 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// # define W_KEY 13
-// # define A_KEY 0
-// # define S_KEY 1
-// # define D_KEY 2
-// # define RIGHT_ARROW_KEY 124
-// # define LEFT_ARROW_KEY 123
-// # define ESC_KEY 53
-
-# define W_KEY 119
-# define A_KEY 97
-# define S_KEY 115
-# define D_KEY 100
-# define RIGHT_ARROW_KEY 65363
-# define LEFT_ARROW_KEY 65361
-# define ESC_KEY 65307
+# define W_KEY 13
+# define A_KEY 0
+# define S_KEY 1
+# define D_KEY 2
+# define RIGHT_ARROW_KEY 124
+# define LEFT_ARROW_KEY 123
+# define ESC_KEY 53
 
 typedef enum e_direction
 {

@@ -6,7 +6,7 @@
 /*   By: eablak <eablak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:59:58 by eablak            #+#    #+#             */
-/*   Updated: 2023/06/21 10:59:59 by eablak           ###   ########.fr       */
+/*   Updated: 2023/06/22 14:28:57 by eablak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	control_cub(t_cub *cub)
 	if (is_empty)
 	{
 		printf("Error\n");
+		free(cub->map);
 		free(cub);
 		exit(1);
 	}
